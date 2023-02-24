@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// base class
+class WritingInstrument {
+   public:
+      string type;
+      string color;
+      WritingInstrument(string type, string color) {
+         this->type = type;
+         this->color = color;
+      }
+      void write(string text) {
+         cout << "Writing " << text << " with a " << color << " " << type << endl;
+      }
+};
+
+// derived class
+class Pen : public WritingInstrument {
+   public:
+      Pen(string color) : WritingInstrument("pen", color) {}
+};
+
+// derived class
+class Pencil : public WritingInstrument {
+   public:
+      Pencil(string color) : WritingInstrument("pencil", color) {}
+};
+
+// main function
+int main() {
+   Pen myPen("blue");
+   myPen.write("Hello world!");
+   
+   Pencil myPencil("red");
+   myPencil.write("How are you?");
+   
+   return 0;
+}
